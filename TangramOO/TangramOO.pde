@@ -24,6 +24,7 @@ void setup() {
   size(1280, 700);
   minim = new Minim(this);
   player = minim.loadFile("8_Bit_Retro_Funk.mp3");     //Cargar archivo de audio 
+  player.loop();                                       //Reproduce el audio en un ciclo infinito
   
   
   shapes = new Shape[7];                                  // Arreglo de Piezas
@@ -195,7 +196,7 @@ void keyPressed() {
        }
        else
        {
-         player.play();
+         player.loop();                                  
        }
        
    }
