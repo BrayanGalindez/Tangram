@@ -5,10 +5,10 @@ Minim minim;
 AudioPlayer player;                                    //Un AudioPlayer proporciona
                                                        //una forma autónoma de reproducir un archivo de sonido transmitiéndolo desde el disco (o Internet). 
 Shape[] shapes;
-boolean drawGrid = true, drawBorder = true;            // Dibujar Grilla y Borde
+
 float scale = 20;                                      // Tamaño de Escala
 int state ;                                            // Pantalla 
-float rotation ;                                       // Rotacion Auxiliar
+float rotation ;                                       // Rotacion 
 color comparison;                                      // Comparacion de color
 PVector position = new PVector (mouseX, mouseY);       // Posición Actual De Mouse
 PImage  bg, successful, controls, start, menu, levels; // Imagenes de Pantalla
@@ -45,35 +45,7 @@ void setup() {
     level[i] = loadImage("level_"+i+".png"); }         // Imagenes de Niveles
   
 }
-
-/*//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-                                                       
-void drawGrid(float scale) {                           
-  push();                                              // Funcion para dibujar una
-  strokeWeight(1);                                     // cuadricula.
-  int i;                                                
-  for (i=0; i<=width/scale; i++) {                     
-                                                       
-    stroke(0, 0, 0, 20);
-    line(i*scale, 0, i*scale, height);
-  }
-  for (i=0; i<=height/scale; i++) {
-    stroke(0, 0, 0, 20);
-    line(0, i*scale, width, i*scale);
-  }
-  pop();
-}
-
-/*//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-
-void drawBorder(){                                    // Funcion para dibujar el borde
-  image(bg,0,0);                                      // del juego.
-  stroke(65,70,140);                                  
-  strokeWeight(2);
-  fill(255);
-  rect(50, 50,width-100, height-100, 10);
-}
-
+                                                     
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 void draw() {                                          //Funcion para dibujar pantalla
@@ -86,9 +58,6 @@ void draw() {                                          //Funcion para dibujar pa
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 void drawShapes(){
-  
-  //if (drawBorder) { drawBorder(); }                    // Activa o desactiva el borde   //Comentado porque el
-  //if (drawGrid) { drawGrid(10); }                      // Activa o desactiva la grilla  //programa es mas lento
   
   currentLevel(level_x);
   
@@ -249,8 +218,6 @@ void keyPressed() {
     if (state != 0){                                  // Regresar al menu principal
       state = 1;
       creatingForms();                                // Recrear las piezas
-      drawGrid = true;                                // Volver a dibujar la rejilla
-      drawBorder = true;                              // Volver a dibujar el borde
       level_x = 0;
     }
     
@@ -260,9 +227,7 @@ void keyPressed() {
   if (key == 'n' || key == 'N'){
     if (state != 0){                                  // Regresar a niveles
       state = 2;
-      creatingForms();                                // Recrear las piezas
-      drawGrid = true;                                // Volver a dibujar la rejilla
-      drawBorder = true;                              // Volver a dibujar el borde
+      creatingForms();                                                         
       level_x = 0;
     }
    
@@ -270,9 +235,7 @@ void keyPressed() {
   if (key == 'p' || key == 'P'){
     if (state != 0){                                  // Regresar a pantalla Principal
       state = 0;
-      creatingForms();                                // Recrear las piezas
-      drawGrid = true;                                // Volver a dibujar la rejilla
-      drawBorder = true;                              // Volver a dibujar el borde
+      creatingForms();                                              
       level_x = 0;
     }
   
