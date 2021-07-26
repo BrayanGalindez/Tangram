@@ -1,9 +1,9 @@
 abstract class Shape {
-  float _rotation;                                       // Rotacion de la pieza
-  PVector _position;                                     // Posicion de la pieza
-  color _hue;                                            // Color de la pieza
-  boolean _use = false;                                  // Interruptor de uso
-  boolean state = false;                                 // Interruptor de reflexion
+  float _rotation;                          // Rotacion de la pieza
+  PVector _position;                        // Posicion de la pieza
+  color _hue;                               // Color de la pieza
+  boolean _use = false;                     // Interruptor de uso
+  boolean state = false;                    // Interruptor de reflexion
   
   float[] grades = {0, PI/4, PI/2, 3/4*PI, PI, 5/4*PI, 3/2*PI, 7/4*PI, 2*PI };  // Grados que hay en el array.
 
@@ -31,7 +31,7 @@ abstract class Shape {
     if (!_use) { strokeWeight(1); stroke(0,5,75); }        // Grosor y Color Linea Sin Uso
     else { strokeWeight(3); stroke(0,0,200); }             // Grosor y Color Linea En Uso
     if (!state) { aspect(); }                              // Crea pieza sin reflexion
-    else { aspect_r();}                                    // Crea pieza con reflejo (Solo Romboide)
+    else { aspect_r();}                                    // Crea pieza con reflejo 
     pop();
   }
 
@@ -47,12 +47,12 @@ abstract class Shape {
       _use = !_use; }                                      // el interruptor de uso
   }
   
-  boolean use(){                                           // Devuelve el estado del
-    return _use;                                           // interruptor de uso
+  boolean use(){                                           
+    return _use;                                           
   }
 
-  void changeUse(){                                        // Cambia el estado del
-    _use = !_use;                                          // interruptor de uso
+  void changeUse(){                                        
+    _use = !_use;                                          
   }
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////*/

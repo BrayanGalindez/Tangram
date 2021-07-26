@@ -87,8 +87,8 @@ void draw() {                                          //Funcion para dibujar pa
 
 void drawShapes(){
   
-  //if (drawBorder) { drawBorder(); }                    // Activa o desactiva el borde
-  //if (drawGrid) { drawGrid(10); }                      // Activa o desactiva la grilla
+  //if (drawBorder) { drawBorder(); }                    // Activa o desactiva el borde   //Comentado porque el
+  //if (drawGrid) { drawGrid(10); }                      // Activa o desactiva la grilla  //programa es mas lento
   
   currentLevel(level_x);
   
